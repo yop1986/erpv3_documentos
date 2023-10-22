@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+<!-- Navbar -->
+{% block navbar_seccion_final %}
+
+{% if user.is_authenticated %}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {% translate "Catalogos" %}
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'documentos:list_bodega' %}">{% translate "Bodega" %}</a></li>
+    <li><a class="dropdown-item" href="{% url 'documentos:create_bodega' %}">{% translate "Nueva bodega" %}</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'qliksense:list_area' %}">{% translate "Áreas responsables" %}</a></li>
+    <li><a class="dropdown-item" href="{% url 'qliksense:create_area' %}">{% translate "Nueva Área" %}</a></li>
+  </ul>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {% translate "Usuarios" %}
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'qliksense:list_usuario' %}">Listar</a></li>
+    <li><a class="dropdown-item" href="{% url 'qliksense:create_usuario' %}">Nuevo Usuario</a></li>
+  </ul>
+</li>
+{% endif %}
+{% endblock %}
+<!-- Navbar -->
+
+
